@@ -34,5 +34,5 @@ Repositório destinado para teste da Company Hero
 
 * Clone o projeto para seu ambiente local, instale os requeriments com o comando "pip install -r requeriments.txt"
 
-* para rodas os testes ultilizar o comando python manage.py test
+* para rodar os testes ultilizar o comando python manage.py test
 
