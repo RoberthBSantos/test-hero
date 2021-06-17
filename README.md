@@ -3,7 +3,7 @@ Repositório destinado para teste da Company Hero
 
 ## Detalhes do projeto
 
-* Projeto em Django ultilizando a ferramenta Django- Rest Framework para criar APIs para gerenciamento de cadastro de funcionarios e empresas.
+* Projeto em Django ultilizando a biblioteca Django- Rest Framework para criar uma API para o gerenciamento de cadastro de funcionarios e empresas, como támbem a listagem desses cadastros.
 
 ## Endpoints
 
