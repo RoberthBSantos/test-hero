@@ -11,8 +11,8 @@ from company.models import Company
 
 class CompanyViewSet(viewsets.ViewSet):
     def get(self, request):
-        companys = Company.objects.all()
-        serializer = CompanySerializer(companys, many=True)
+        companies = Company.objects.all()
+        serializer = CompanySerializer(companies, many=True)
         return Response(serializer.data)
 
     def get_company(self, id):
@@ -21,7 +21,7 @@ class CompanyViewSet(viewsets.ViewSet):
         except Company.DoesNotExist:
             raise Http404
 
-    def retrieve(self, request, id):
+    def show(self, request, id):
         company = self.get_company(id)
         serializer = CompanySerializer(company)
         return Response(serializer.data)
@@ -31,3 +31,8 @@ class CompanyViewSet(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def delete(self, request, company_id):
+        company = self.get_company(company_id)
+        company.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

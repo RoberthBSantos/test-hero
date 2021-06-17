@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='company',
-            options={'verbose_name': 'Company', 'verbose_name_plural': 'Companys'},
+            options={'verbose_name': 'Company', 'verbose_name_plural': 'Companies'},
         ),
         migrations.AlterModelTable(
             name='company',

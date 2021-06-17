@@ -13,4 +13,4 @@ class Company(models.Model):
     class Meta:
         db_table = "company"
         verbose_name = 'Company'
-        verbose_name_plural = 'Companys'
+        verbose_name_plural = 'Companies'

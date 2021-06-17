@@ -25,6 +25,6 @@ urlpatterns = [
     path('company/', CompanyViewSet.as_view({"get": "get"})),
     path('user/', EmployeeViewSet.as_view({"post": "post"})),
     path('user/', EmployeeViewSet.as_view({"get": "get"})),
-    path('company/<int:id>/', CompanyViewSet.as_view({"get": "retrieve"})),
-    path('user/<int:employee_id>/', EmployeeViewSet.as_view({"get": "retrieve"})),
+    path('company/<int:id>/', CompanyViewSet.as_view({"get": "show"})),
+    path('user/<str:username>/', EmployeeViewSet.as_view({"get": "show", "delete": "delete"})),
 ]

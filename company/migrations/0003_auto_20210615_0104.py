@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='company',
             name='employees',
-            field=models.ManyToManyField(blank=True, null=True, related_name='companys', to='user.Employee'),
+            field=models.ManyToManyField(blank=True, null=True, related_name='companies', to='user.Employee'),
         ),
     ]

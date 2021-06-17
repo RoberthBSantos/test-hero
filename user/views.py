@@ -18,10 +18,10 @@ class EmployeeViewSet(viewsets.ViewSet):
         serializer = EmployeeSerializer(employees, many=True)
         return Response(serializer.data)
 
-    def get_user(self, id):
+    def get_user(self, username):
         try:
-            return Employee.objects.get(pk=id)
-        except Employee.DoesnotExist:
+            return Employee.objects.get(user_django__username=username)
+        except:
             raise Http404
 
     def post(self, request):
@@ -31,7 +31,12 @@ class EmployeeViewSet(viewsets.ViewSet):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def retrieve(self, request, employee_id):
-        employee = self.get_user(employee_id)
+    def show(self, request, username):
+        employee = self.get_user(username)
         serializer = EmployeeSerializer(employee)
         return Response(serializer.data)
+
+    def delete(self, request, user_id):
+        user = self.get_user(user_id)
+        user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

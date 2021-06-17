@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('company_name', models.CharField(max_length=200)),
                 ('cnpj', models.CharField(max_length=18)),
                 ('trading_name', models.CharField(blank=True, max_length=200, null=True)),
-                ('employeds', models.ManyToManyField(null=True, related_name='companys', to='user.Employee')),
+                ('employeds', models.ManyToManyField(null=True, related_name='companies', to='user.Employee')),
             ],
         ),
     ]

@@ -4,7 +4,7 @@ from user.models import Employee
 from company.models import Company
 
 
-class CompanysListSerializer(serializers.ModelSerializer):
+class CompaniesListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
         fields = (
@@ -18,7 +18,7 @@ class CompanysListSerializer(serializers.ModelSerializer):
 
 class EmployeeSerializer(serializers.ModelSerializer):
     username = serializers.SerializerMethodField()
-    companys = serializers.SerializerMethodField()
+    companies = serializers.SerializerMethodField()
 
     class Meta:
         model = Employee
@@ -26,22 +26,22 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'id',
             'username',
             'cpf',
-            'companys'
+            'companies'
         )
 
     def get_username(self, obj):
 
         return obj.user_django.username
 
-    def get_companys(self, obj):
-        companys_all = Company.objects.all()
-        companys = []
-        for company in companys_all:
+    def get_companies(self, obj):
+        companies_all = Company.objects.all()
+        companies = []
+        for company in companies_all:
             for employee in company.employees.all():
                 if employee.id == obj.id:
-                    companys.append(company)
+                    companies.append(company)
 
-        return CompanysListSerializer(companys, many=True).data
+        return CompaniesListSerializer(companies, many=True).data
 
 
 class EmployeeCreateSerializer(serializers.ModelSerializer):

@@ -5,7 +5,7 @@ from django.db import models
 # Create your models here.
 class Employee(models.Model):
     user_django = models.OneToOneField(User, related_name='employed', on_delete=models.CASCADE, unique=True)
-    cpf = models.CharField(max_length=18, blank=True)
+    cpf = models.CharField(max_length=18)
 
     class Meta:
         db_table = "employee"
